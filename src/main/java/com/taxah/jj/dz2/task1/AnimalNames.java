@@ -10,16 +10,24 @@ public enum AnimalNames {
     BELLA("Bella"),
     ROCKY("Rocky"),
     LOLA("Lola"),
-    CHARLIE("Charlie");
+    CHARLIE("Charlie"),
+    OREO("Oreo"),
+    COCO("Coco"),
+    TEDDY("Teddy"),
+    ZOEY("Zoey"),
+    OLIVER("Oliver"),
+    PEPPER("Pepper"),
+    CASIE("Casie"),
+    RUBY("Ruby"),
+    SAMMY("Sammy"),
+    NOVA("Nova");
 
     private final String displayName;
 
-    // Приватный конструктор для установки отображаемого имени
     AnimalNames(String displayName) {
         this.displayName = displayName;
     }
 
-    // Метод для получения отображаемого имени
     public String getDisplayName() {
         return displayName;
     }

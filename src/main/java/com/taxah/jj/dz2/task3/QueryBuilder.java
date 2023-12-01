@@ -116,10 +116,11 @@ public class QueryBuilder {
     }
 
     /**
+     * Builds a SQL DELETE query for a given entity class and primary key.
      *
-     * @param clazz
-     * @param primaryKey
-     * @return
+     * @param clazz      The Class object representing the entity.
+     * @param primaryKey The primary key value for identifying the record to be deleted.
+     * @return A string representing the SQL DELETE query.
      */
     public String buildDeleteQuery(Class<?> clazz, UUID primaryKey){
         StringBuilder query = new StringBuilder("DELETE FROM ");
@@ -141,5 +142,4 @@ public class QueryBuilder {
         }
         return query.toString();
     }
-
 }
