@@ -1,12 +1,10 @@
 package com.taxah.jj.dz2.task1;
 
 public class Cat extends Animal {
-    boolean wild;
 
 
-    public Cat(String name, int age, boolean crazy) {
+    public Cat(String name, int age) {
         super(name, age);
-        this.wild = crazy;
     }
 
     public void eat() {

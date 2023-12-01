@@ -1,12 +1,8 @@
 package com.taxah.jj.dz2.task1;
 
 public class Dog extends Animal{
-    boolean friendly;
-
-
-    public Dog(String name, int age, boolean friendly) {
+    public Dog(String name, int age) {
         super(name, age);
-        this.friendly = friendly;
     }
 
     public void find(){

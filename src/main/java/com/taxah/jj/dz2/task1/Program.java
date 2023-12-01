@@ -1,8 +1,11 @@
 package com.taxah.jj.dz2.task1;
 
+
+import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.Random;
 
 /*
 Задача 1:
@@ -14,14 +17,35 @@ import java.lang.reflect.Method;
  */
 public class Program {
 
+    private static final AnimalNames[] VALUES = AnimalNames.values();
+    private static final Random random = new Random();
+    private static final int SIZE = VALUES.length;
+
     public static void main(String[] args) {
-        Animal[] animals = {
-                new Cat("Cassie", 3, true),
-                new Dog("Graf", 1, true),
-                new Cat("Tishka", 2, false)};
+        Animal cat1 = null;
+        Animal dog1 = null;
+        Animal dog2 = null;
+        Animal cat2 = null;
+        try {
+            cat1 = makeObj(Cat.class);
+            dog1 = makeObj(Dog.class);
+            dog2 = makeObj(Dog.class);
+            cat2 = makeObj(Cat.class);
+        } catch (InvocationTargetException |InstantiationException | IllegalAccessException | NoSuchMethodException e ) {
+            e.printStackTrace();
+        }
+
+        Animal[] animals = {cat1, dog1, dog2 ,cat2};
         for (Animal animal : animals) {
             printInfo(animal);
         }
+    }
+
+    private static Animal makeObj(Class<? extends Animal> clazz) throws InvocationTargetException, InstantiationException, IllegalAccessException, NoSuchMethodException {
+        Constructor<?>[] constructors = clazz.getConstructors();
+        String name = VALUES[random.nextInt(1,SIZE)].getDisplayName();
+        int age = random.nextInt(0,7);
+        return (Animal) constructors[0].newInstance(name, age);
     }
 
     private static void printInfo(Object obj) {
